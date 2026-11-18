@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Game Day Guide | Cowboys home games at AT&amp;T Stadium</title>
+  <meta name="description" content="An unofficial fan guide to Dallas Cowboys home games at AT&T Stadium: bag policy, parking, tailgating and gate times, plus a chatbot that answers your questions.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600;700&family=Barlow+Condensed:wght@700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@700;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <header class="site-head site-head--over">
+    <a class="brand" href="index.html">
+      <span class="brand-name">Game Day Guide</span>
+      <span class="brand-note">Unofficial fan guide to Cowboys home games</span>
+    </a>
+    <nav class="site-nav" aria-label="Main">
+      <a href="#planner">Game day clock</a>
+      <a href="guide.html">About the guide</a>
+    </nav>
+  </header>
+
+  <main>
+
+    <!-- Landing video: auto-plays, muted, on a loop -->
+    <section class="hero">
+      <div class="hero-media">
+        <video class="hero-video" src="gameday.mp4" autoplay muted loop playsinline preload="auto"
+               aria-label="AI-generated video of a fan in a number 1 jersey walking through a stadium tunnel to the stands and cheering"></video>
+      </div>
+
+      <button type="button" class="video-toggle">Pause video</button>
+
+      <p class="video-missing">
+        The video goes here. Add your AI-generated clip to this folder and name it
+        <strong>gameday.mp4</strong>. This note disappears once the file is found.
+      </p>
+
+      <div class="hero-copy">
+        <h1>Know before you go to AT&amp;T Stadium</h1>
+        <p class="hero-lede">
+          Bags, parking, tailgating and gate times for Cowboys home games,
+          sorted out before you leave the driveway.
+        </p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="guide.html">Read the full game day guide</a>
+          <button type="button" class="btn btn-outline-light" data-open-chat>Ask the chatbot</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- X-factor: the game day clock -->
+    <section class="section planner" id="planner">
+      <h2 class="section-title">Build your game day clock</h2>
+      <p class="section-intro">
+        Pick the kickoff, how you like to arrive and how long your drive is.
+        The clock works backward from kickoff and tells you when to do what.
+      </p>
+
+      <div class="planner-grid">
+        <form class="planner-form" id="planner-form">
+          <fieldset>
+            <legend>Kickoff time (Central)</legend>
+            <div class="chips">
+              <label class="chip"><input type="radio" name="kickoff" value="720"><span>12:00 PM</span></label>
+              <label class="chip"><input type="radio" name="kickoff" value="925" checked><span>3:25 PM</span></label>
+              <label class="chip"><input type="radio" name="kickoff" value="1160"><span>7:20 PM</span></label>
+              <label class="chip"><input type="radio" name="kickoff" value="other"><span>Other</span></label>
+            </div>
+            <div class="other-time" id="other-time" hidden>
+              <label for="kick-other">Kickoff at</label>
+              <input type="time" id="kick-other" value="15:30">
+            </div>
+          </fieldset>
+
+          <fieldset>
+            <legend>How do you like to arrive?</legend>
+            <div class="chips">
+              <label class="chip"><input type="radio" name="style" value="tailgate"><span>Tailgate first</span></label>
+              <label class="chip"><input type="radio" name="style" value="easy" checked><span>Easy arrival</span></label>
+              <label class="chip"><input type="radio" name="style" value="close"><span>Cutting it close</span></label>
+            </div>
+          </fieldset>
+
+          <label class="range-label" for="drive">
+            Drive to Arlington: <span class="range-value" id="drive-value">40 min</span>
+          </label>
+          <input type="range" id="drive" min="10" max="150" step="5" value="40">
+        </form>
+
+        <div class="planner-result" aria-live="polite">
+          <h3 class="clock-title" id="clock-title">Your clock</h3>
+          <div class="field" aria-hidden="true">
+            <div class="field-inner" id="field-inner"></div>
+          </div>
+          <ol class="clock" id="clock-list"></ol>
+          <p class="fine">
+            Times are estimates based on the stadium's usual pattern: lots open about
+            <span id="lots-note">five</span> hours before kickoff and gates open two hours before.
+            Confirm the times for your game at
+            <a href="https://attstadium.com" target="_blank" rel="noopener">attstadium.com</a>.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section questions">
+      <h2 class="section-title">The three questions everyone asks</h2>
+
+      <dl class="qa">
+        <div class="qa-row">
+          <dt>What bag can I bring?</dt>
+          <dd>
+            <p>A clear one. Plastic, vinyl or PVC, no bigger than 12 × 6 × 12 inches.
+            A one-gallon clear freezer bag also works. Backpacks and regular purses stay in the car.</p>
+            <button type="button" class="link-button" data-open-chat>Ask the chatbot about bags</button>
+          </dd>
+        </div>
+        <div class="qa-row">
+          <dt>When should I park?</dt>
+          <dd>
+            <p>Lots generally open five hours before kickoff, and the ones closest to the
+            gates fill first. Buy your parking pass before game day so you know which lot is yours.</p>
+            <button type="button" class="link-button" data-open-chat>Ask the chatbot about parking</button>
+          </dd>
+        </div>
+        <div class="qa-row">
+          <dt>Can I tailgate?</dt>
+          <dd>
+            <p>Yes. Tailgating runs from the time the lots open until two hours after the
+            game, in the grass areas along the edges of the lots.</p>
+            <button type="button" class="link-button" data-open-chat>Ask the chatbot about tailgating</button>
+          </dd>
+        </div>
+      </dl>
+
+      <p class="questions-more">
+        <a class="btn btn-outline-dark" href="guide.html">Read the full game day guide</a>
+      </p>
+    </section>
+
+  </main>
+
+  <footer class="site-foot">
+    <div class="xfactor">
+      <h2>Creative X-factor: the game day clock</h2>
+      <p>Choose a kickoff time, an arrival style and your drive, and the page works
+      backward to build your personal timeline, from leaving home to being in your
+      seat. It remembers your picks for next time.</p>
+    </div>
+    <p class="disclaimer">
+      Game Day Guide is a student project. It is not affiliated with the Dallas Cowboys,
+      AT&amp;T Stadium or the NFL. Stadium policies change, so confirm details at
+      <a href="https://attstadium.com" target="_blank" rel="noopener">attstadium.com</a> before you go.
+    </p>
+  </footer>
+
+  <noscript>
+    <p style="padding:1rem"><a href="https://share.chatling.ai/s/kKgDypYMoNRRY6E">Open the Game Day Guide chatbot</a></p>
+  </noscript>
+  <script src="script.js"></script>
+</body>
+</html>
